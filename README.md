@@ -1,6 +1,6 @@
 # Expense Manager
 
-A modern, **offline-first** personal finance app to track income and expenses — entirely in your browser. No account, no server, no sign-up. Your data stays on your device.
+A modern, **offline** personal finance app to track income and expenses entirely in your browser. No account, no server, no sign-up. Your data stays on your device.
 
 ![Dashboard — dark mode](docs/screenshots/dashboard.png)
 
@@ -21,22 +21,22 @@ A modern, **offline-first** personal finance app to track income and expenses �
 
 | Feature | Description |
 |---------|-------------|
-| **Dashboard** | Yearly income, expenses, balance, category pie chart, and recent transactions |
-| **Add Transaction** | Record income or expense with categories, payment method, notes, and recurring support |
+| **Dashboard** | Yearly income, expenses, balance, category pie chart and recent transactions |
+| **Add Transaction** | Record income or expense with categories, payment method, notes and recurring support |
 | **Calendar** | Monthly view with color-coded days (income, expense, or mixed) and daily drill-down |
-| **Expense Explorer** | Search, filter, sort, paginate, and export transactions to CSV or Excel |
-| **Calculators** | Expense split, savings goal planner, and 50/30/20 budget calculator |
+| **Expense Explorer** | Search, filter, sort, paginate and export transactions to CSV or Excel |
+| **Calculators** | Expense split, savings goal planner and 50/30/20 budget calculator |
 | **Reports** | Expense breakdown by category with interactive charts |
 | **Dark / Light Mode** | Dark mode by default; toggle anytime from the header |
 | **Offline & PWA** | Works without internet after first load; installable as a Progressive Web App |
-| **Privacy** | All data stored locally in IndexedDB — nothing sent to a server |
+| **Privacy** | All data stored locally in IndexedDB and nothing sent to a server |
 
 ---
 
 ## Screenshots
 
 ### Dashboard
-Financial overview with summary cards, expense pie chart, and recent activity.
+Financial overview with summary cards, expense pie chart and recent activity.
 
 ![Dashboard](docs/screenshots/dashboard.png)
 
@@ -51,12 +51,12 @@ Color-coded monthly calendar — green for income, red for expenses, orange for 
 ![Calendar](docs/screenshots/calendar.png)
 
 ### Expense Explorer
-Powerful filtering, sorting, pagination, and CSV/Excel export.
+Powerful filtering, sorting, pagination and CSV/Excel export.
 
 ![Expense Explorer](docs/screenshots/explorer.png)
 
 ### Calculators
-Built-in tools for splitting bills, savings goals, and budget planning.
+Built-in tools for splitting bills, savings goals and budget planning.
 
 ![Calculators](docs/screenshots/calculator.png)
 
@@ -111,7 +111,7 @@ Toggle between dark and light themes from the header.
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/smart-expense-manager.git
+git clone https://github.com/Kowshalya-Gopinaidu-Asokan/smart-expense-manager.git
 cd smart-expense-manager
 
 # Install dependencies
