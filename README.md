@@ -11,14 +11,9 @@ A modern, **offline-first** personal finance app to track income and expenses �
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
 - [Getting Started](#getting-started)
 - [Available Scripts](#available-scripts)
-- [Project Structure](#project-structure)
-- [How Data Is Stored](#how-data-is-stored)
-- [Deploy to Netlify](#deploy-to-netlify)
 - [Browser Support](#browser-support)
-- [License](#license)
 
 ---
 
@@ -94,25 +89,6 @@ Toggle between dark and light themes from the header.
 
 ---
 
-## Architecture
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                     React UI (Pages)                    │
-│   Dashboard · Add Tx · Calendar · Explorer · Reports    │
-└─────────────────────────┬───────────────────────────────┘
-                          │ useAppSelector / dispatch
-┌─────────────────────────▼───────────────────────────────┐
-│                   Redux Store (in-memory)               │
-│              transactions: { items, loading, error }    │
-└─────────────────────────┬───────────────────────────────┘
-                          │ async thunks (load / add)
-┌─────────────────────────▼───────────────────────────────┐
-│              IndexedDB — Dexie (persistent)             │
-│         transactions · recurringRules                   │
-└─────────────────────────────────────────────────────────┘
-```
-
 **How it works:**
 
 1. On app load, `useInitializeApp()` dispatches `loadTransactions()`.
@@ -172,96 +148,6 @@ The built files are output to the `dist/` folder.
 
 ---
 
-## Project Structure
-
-```
-smart-expense-manager/
-├── docs/
-│   └── screenshots/          # README screenshots
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── app/
-│   │   ├── App.tsx           # Root component & providers
-│   │   └── theme/            # Dark/light theme context
-│   ├── features/
-│   │   ├── dashboard/        # Dashboard page
-│   │   ├── transactions/     # Add, Calendar, Explorer pages
-│   │   ├── calculator/       # Calculator tools
-│   │   └── reports/          # Reports page
-│   ├── shared/
-│   │   ├── components/       # Reusable UI components
-│   │   ├── constants/        # Categories, payment methods
-│   │   └── layout/           # App shell (sidebar + header)
-│   ├── hooks/                # useInitializeApp, useCurrency, redux
-│   ├── routes/               # React Router config
-│   ├── services/
-│   │   ├── db/               # Dexie / IndexedDB setup
-│   │   └── export/           # CSV & Excel export
-│   ├── store/
-│   │   └── slices/           # Redux transaction slice
-│   ├── types/                # TypeScript interfaces
-│   ├── utils/                # Finance, dates, recurring logic
-│   └── main.tsx              # App entry point
-├── index.html
-├── package.json
-├── vite.config.ts
-└── README.md
-```
-
----
-
-## How Data Is Stored
-
-All financial data is stored in your browser's **IndexedDB** (database name: `SmartExpenseDB`).
-
-| Store | Contents |
-|-------|----------|
-| `transactions` | Every income and expense record |
-| `recurringRules` | Rules for auto-generating recurring transactions |
-
-**Important notes:**
-
-- Data is **per browser, per device** — it does not sync across devices.
-- Clearing browser site data will delete your transactions.
-- There is no cloud backup unless you export via the Explorer page (CSV/Excel).
-
----
-
-## Deploy to Netlify
-
-This app is a static SPA — perfect for Netlify (or Vercel, GitHub Pages, etc.).
-
-### Option 1 — Netlify UI
-
-1. Push this repo to GitHub.
-2. Go to [netlify.com](https://www.netlify.com) → **Add new site** → **Import from Git**.
-3. Use these build settings:
-
-| Setting | Value |
-|---------|-------|
-| Build command | `npm run build` |
-| Publish directory | `dist` |
-
-4. Add a `public/_redirects` file (for client-side routing):
-
-```
-/*    /index.html   200
-```
-
-5. Deploy.
-
-### Option 2 — Netlify CLI
-
-```bash
-npm run build
-npx netlify deploy --prod --dir=dist
-```
-
-No environment variables are required — the app has no backend.
-
----
-
 ## Browser Support
 
 Works in all modern browsers that support IndexedDB:
@@ -269,12 +155,6 @@ Works in all modern browsers that support IndexedDB:
 - Chrome / Edge 90+
 - Firefox 90+
 - Safari 15+
-
----
-
-## License
-
-MIT — feel free to use, modify, and distribute.
 
 ---
 
