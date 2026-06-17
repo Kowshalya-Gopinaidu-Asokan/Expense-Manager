@@ -2,6 +2,10 @@
 
 A modern, **offline** personal finance app to track income and expenses entirely in your browser. No account, no server, no sign-up. Your data stays on your device.
 
+
+🌐 Live Demo: [View Expense Manager](https://your-expense-manager.netlify.app/)
+
+
 ![Dashboard — dark mode](docs/screenshots/dashboard.png)
 
 ---
